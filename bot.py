@@ -27,11 +27,10 @@ def main():
     vk_session = vk_api.VkApi(token='3a1966a9dd09543a8b81ece18b57359fd6f5ef449e7e64b6ecddf820b5f5d543c9f00f9e73c8640b5f3bf')
 
     vk = vk_session.get_api()
-    
-    client.headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0'
+
+    # Get csrf token =/
     client = requests.get('https://edu.misis.ru/schedule/moscow/current')
-    
-    csrftoken = client.text[361:449]
+    csrftoken = client.text[361:449] # should not be hardcoded probably yes???
 
     upload = VkUpload(vk_session)  # Для загрузки изображений
     longpoll = VkLongPoll(vk_session)
