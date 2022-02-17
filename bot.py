@@ -2,9 +2,6 @@
 
 import requests
 
-<meta name="csrf-token" content="6k4ott1DgIAkfazE3zvn5XTHlEupgAyK3ru8/2UgD6thkfU/yBiOoJ5OkP80jwDpFPhwgqkWJmwsV9/KH5aJoA==" />
-
-
 import vk_api
 from vk_api import VkUpload
 from vk_api.longpoll import VkLongPoll, VkEventType
