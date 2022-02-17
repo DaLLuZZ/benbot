@@ -31,8 +31,7 @@ def main():
     client.headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0'
     client = requests.get('https://edu.misis.ru/schedule/moscow/current')
     
-    pos = client.text.find('"csrf-token" content="')
-    csrftoken = pos
+    csrftoken = client.text[361:449]
 
     upload = VkUpload(vk_session)  # Для загрузки изображений
     longpoll = VkLongPoll(vk_session)
