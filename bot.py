@@ -31,13 +31,8 @@ def main():
     client.headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0'
     client = requests.get('https://edu.misis.ru/schedule/moscow/current')
     
-    print(client.cookies)
-    if 'csrftoken' in client.cookies:
-    # Django 1.6 and up
-        csrftoken = client.cookies['csrftoken']
-    else:
-    # older versions
-        csrftoken = client.cookies['csrf']
+    pos = client.text.find('"csrf-token" content="')
+    csrftoken = pos
 
     upload = VkUpload(vk_session)  # Для загрузки изображений
     longpoll = VkLongPoll(vk_session)
