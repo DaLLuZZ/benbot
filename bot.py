@@ -51,10 +51,10 @@ def main():
               }
     body = {'filial': 880,
             'group': '7121',
-            'room': null,
-            'teacher': null,
+            'room': None,
+            'teacher': None,
             'start_date': '2022-02-18',
-            'end_date': null}
+            'end_date': None}
 
     client = requests.post('https://login.misis.ru/method/schedule.get', json.dumps(body), headers)
 
