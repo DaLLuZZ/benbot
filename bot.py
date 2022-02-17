@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import requests
+import json
 
 import vk_api
 from vk_api import VkUpload
@@ -31,6 +32,33 @@ def main():
     # Get csrf token =/
     client = requests.get('https://edu.misis.ru/schedule/moscow/current')
     csrftoken = client.text[361:449] # should not be hardcoded probably yes???
+
+    headers = {'content-type': 'application/json;charset=UTF-8',
+              'authority': 'login.misis.ru',
+              'path': '/method/schedule.get',
+              'accept': 'application/json',
+              'x-csrf-token': csrftoken,
+              'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"',
+              'sec-ch-ua-mobile': '?0',
+              'sec-ch-ua-platform':'"Windows"',
+              'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36',
+              'origin': 'https://edu.misis.ru',
+              'sec-fetch-site': 'same-site',
+              'sec-fetch-mode': 'cors',
+              'sec-fetch-dest': 'empty',
+              'referer': 'https://edu.misis.ru/',
+              'accept-language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+              }
+    body = {'filial': 880,
+            'group': '7121',
+            'room': null,
+            'teacher': null,
+            'start_date': '2022-02-18',
+            'end_date': null'}
+
+    client = requests.post('https://login.misis.ru/method/schedule.get', json.dumps(body), headers)
+
+    print(client.text)
 
     upload = VkUpload(vk_session)  # Для загрузки изображений
     longpoll = VkLongPoll(vk_session)
