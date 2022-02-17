@@ -33,33 +33,6 @@ def main():
     client = requests.get('https://edu.misis.ru/schedule/moscow/current')
     csrftoken = client.text[361:449] # should not be hardcoded probably yes???
 
-    headers = {'content-type': 'application/json;charset=UTF-8',
-              'authority': 'login.misis.ru',
-              'path': '/method/schedule.get',
-              'accept': 'application/json',
-              'x-csrf-token': csrftoken,
-              'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"',
-              'sec-ch-ua-mobile': '?0',
-              'sec-ch-ua-platform':'"Windows"',
-              'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36',
-              'origin': 'https://edu.misis.ru',
-              'sec-fetch-site': 'same-site',
-              'sec-fetch-mode': 'cors',
-              'sec-fetch-dest': 'empty',
-              'referer': 'https://edu.misis.ru/',
-              'accept-language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
-              }
-    body = {'filial': 880,
-            'group': '7121',
-            'room': None,
-            'teacher': None,
-            'start_date': '2022-02-18',
-            'end_date': None}
-
-    client = requests.post('https://login.misis.ru/method/schedule.get', body, headers)
-
-    print(client.text)
-
     upload = VkUpload(vk_session)  # Для загрузки изображений
     longpoll = VkLongPoll(vk_session)
 
@@ -78,11 +51,42 @@ def main():
             text = response.get('AbstractText')
             image_url = response.get('Image')
 
+            headers = {
+                       'content-type': 'application/json;charset=UTF-8',
+                       'authority': 'login.misis.ru',
+                       'path': '/method/schedule.get',
+                       'accept': 'application/json',
+                       'x-csrf-token': csrftoken,
+                       'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98", "Google Chrome";v="98"',
+                       'sec-ch-ua-mobile': '?0',
+                       'sec-ch-ua-platform':'"Windows"',
+                       'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36',
+                       'origin': 'https://edu.misis.ru',
+                       'sec-fetch-site': 'same-site',
+                       'sec-fetch-mode': 'cors',
+                       'sec-fetch-dest': 'empty',
+                       'referer': 'https://edu.misis.ru/',
+                       'accept-language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+                      }
+            body =    {
+                       'filial': 880,
+                       'group': '7121',
+                       'room': None,
+                       'teacher': None,
+                       'start_date': '2022-02-18',
+                       'end_date': None
+                       }
+
+    client = requests.post('https://login.misis.ru/method/schedule.get', body, headers)
+    
+    response = json.loads(client.text)
+
+    print(client.text)
             if not text:
                 vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
-                    message=client.text
+                    message=response['schedule']['bell_1']['day_5']['lessons']['teachers']['name']
                 )
                 print('no results')
                 continue
