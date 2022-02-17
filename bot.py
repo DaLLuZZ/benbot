@@ -54,7 +54,7 @@ def main():
             'room': null,
             'teacher': null,
             'start_date': '2022-02-18',
-            'end_date': null'}
+            'end_date': null}
 
     client = requests.post('https://login.misis.ru/method/schedule.get', json.dumps(body), headers)
 
