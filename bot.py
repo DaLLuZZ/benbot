@@ -82,7 +82,7 @@ def main():
                 vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
-                    message=client.text.len
+                    message=client.text
                 )
                 print('no results')
                 continue
