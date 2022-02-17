@@ -1,0 +1,690 @@
+{
+  "status": "FOUND",
+  "start_date": "2022-02-14",
+  "start_date_show": "14 февраля 2022",
+  "end_date": "2022-02-19",
+  "end_date_show": "19 февраля 2022",
+  "prev_date": "2022-02-07",
+  "next_date": "2022-02-21",
+  "teacher_id": null,
+  "group_id": "7121",
+  "room_id": null,
+  "schedule_header": {
+    "header": {
+      "type": "static",
+      "text": "Время"
+    },
+    "day_1": {
+      "type": "listable",
+      "text": "понедельник ",
+      "short_text": "Пн",
+      "date": "14.02.22"
+    },
+    "day_2": {
+      "type": "listable",
+      "text": "вторник ",
+      "short_text": "Вт",
+      "date": "15.02.22"
+    },
+    "day_3": {
+      "type": "listable",
+      "text": "среда ",
+      "short_text": "Ср",
+      "date": "16.02.22"
+    },
+    "day_4": {
+      "type": "listable",
+      "text": "четверг ",
+      "short_text": "Чт",
+      "date": "17.02.22"
+    },
+    "day_5": {
+      "type": "listable",
+      "text": "пятница ",
+      "short_text": "Пт",
+      "date": "18.02.22"
+    },
+    "day_6": {
+      "type": "listable",
+      "text": "суббота ",
+      "short_text": "Сб",
+      "date": "19.02.22"
+    }
+  },
+  "schedule": {
+    "bell_1": {
+      "header": {
+        "type": "bell",
+        "start_lesson": "09:00",
+        "end_lesson": "10:35"
+      },
+      "day_1": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 3875,
+            "subject_name": "Физическая культура",
+            "teachers": [
+              {
+                "id": null,
+                "post": null,
+                "name": null
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 312,
+                "name": "Каф. ФКИЗ"
+              }
+            ],
+            "room_id": 312,
+            "room_name": "Каф. ФКИЗ",
+            "type": "Практические",
+            "in_ceiling": null,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_2": {
+        "type": "lesson",
+        "lessons": []
+      },
+      "day_3": {
+        "type": "lesson",
+        "lessons": []
+      },
+      "day_4": {
+        "type": "lesson",
+        "lessons": []
+      },
+      "day_5": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 543,
+            "subject_name": "Математика",
+            "teachers": [
+              {
+                "id": 51636,
+                "post": "старший преподаватель",
+                "name": "Сметюхова А.В."
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 870,
+                "name": "А-304"
+              }
+            ],
+            "room_id": 870,
+            "room_name": "А-304",
+            "type": "Практические",
+            "in_ceiling": true,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_6": {
+        "type": "lesson",
+        "lessons": []
+      }
+    },
+    "bell_2": {
+      "header": {
+        "type": "bell",
+        "start_lesson": "10:50",
+        "end_lesson": "12:25"
+      },
+      "day_1": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 547,
+            "subject_name": "Физика",
+            "teachers": [
+              {
+                "id": 77492,
+                "post": "доцент",
+                "name": "Шапошников Ф.В."
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 97,
+                "name": "Л-518"
+              }
+            ],
+            "room_id": 97,
+            "room_name": "Л-518",
+            "type": "Лекционные",
+            "in_ceiling": true,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_2": {
+        "type": "lesson",
+        "lessons": []
+      },
+      "day_3": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 543,
+            "subject_name": "Математика",
+            "teachers": [
+              {
+                "id": 74943,
+                "post": "доцент",
+                "name": "Сизин П.Е."
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 137,
+                "name": "Л-512"
+              }
+            ],
+            "room_id": 137,
+            "room_name": "Л-512",
+            "type": "Лекционные",
+            "in_ceiling": true,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_4": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 7304,
+            "subject_name": "Философия",
+            "teachers": [
+              {
+                "id": 74977,
+                "post": "доцент",
+                "name": "Торбург М.Р."
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 592,
+                "name": "А-421"
+              }
+            ],
+            "room_id": 592,
+            "room_name": "А-421",
+            "type": "Практические",
+            "in_ceiling": true,
+            "other": "https://teams.microsoft.com/l/team/19%3aG80UOig-rugvLVQ0xli9JrLnE48Q5iwmYJa7NNaqp7M1%40thread.tacv2/conversations?groupId=36737680-5da2-4a83-b63f-7d54d24f99a0&tenantId=21f92996-c72d-4b9f-b5a5-283c00b9ecaa",
+            "other1": " https://lms.misis.ru/enroll/FRBMJ9 "
+          }
+        ]
+      },
+      "day_5": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 543,
+            "subject_name": "Математика",
+            "teachers": [
+              {
+                "id": 51636,
+                "post": "старший преподаватель",
+                "name": "Сметюхова А.В."
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 870,
+                "name": "А-304"
+              }
+            ],
+            "room_id": 870,
+            "room_name": "А-304",
+            "type": "Практические",
+            "in_ceiling": true,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_6": {
+        "type": "lesson",
+        "lessons": []
+      }
+    },
+    "bell_3": {
+      "header": {
+        "type": "bell",
+        "start_lesson": "12:40",
+        "end_lesson": "14:15"
+      },
+      "day_1": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 5781,
+            "subject_name": "Иностранный язык",
+            "teachers": [
+              {
+                "id": null,
+                "post": null,
+                "name": null
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 324,
+                "name": "Каф. ИЯКТ"
+              }
+            ],
+            "room_id": 324,
+            "room_name": "Каф. ИЯКТ",
+            "type": "Практические",
+            "in_ceiling": true,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_2": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 549,
+            "subject_name": "Химия",
+            "teachers": [
+              {
+                "id": 188308,
+                "post": "ассистент",
+                "name": "Осипов Д.О."
+              },
+              {
+                "id": 42430,
+                "post": "старший преподаватель",
+                "name": "Лезова С.П."
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2",
+                "subgroup_id": 11,
+                "subgroup_name": "1"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 372,
+                "name": "К-529а"
+              },
+              {
+                "id": 704,
+                "name": "К-529б"
+              }
+            ],
+            "room_id": 372,
+            "room_name": "К-529а",
+            "type": "Лабораторные",
+            "in_ceiling": true,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_3": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 5781,
+            "subject_name": "Иностранный язык",
+            "teachers": [
+              {
+                "id": null,
+                "post": null,
+                "name": null
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 324,
+                "name": "Каф. ИЯКТ"
+              }
+            ],
+            "room_id": 324,
+            "room_name": "Каф. ИЯКТ",
+            "type": "Практические",
+            "in_ceiling": true,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_4": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 1982,
+            "subject_name": "Персональная эффективность",
+            "teachers": [
+              {
+                "id": 69715,
+                "post": "доцент",
+                "name": "Замалдинова Г.Н."
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 21,
+                "name": "А-321"
+              }
+            ],
+            "room_id": 21,
+            "room_name": "А-321",
+            "type": "Практические",
+            "in_ceiling": true,
+            "other": "https://teams.microsoft.com/l/team/19%3axYqJyphC39WQYvWMilD_P5DFFGR19OogDx8pIoxFRFs1%40thread.tacv2/conversations?groupId=3cd214f9-3b82-44df-b840-85a77f3009bc&tenantId=21f92996-c72d-4b9f-b5a5-283c00b9ecaa",
+            "other1": "https://lms.misis.ru/enroll/YKE3BL "
+          }
+        ]
+      },
+      "day_5": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 4392,
+            "subject_name": "Экономика",
+            "teachers": [
+              {
+                "id": 49113,
+                "post": "старший преподаватель",
+                "name": "Волков М.Н."
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 755,
+                "name": "А-308"
+              }
+            ],
+            "room_id": 755,
+            "room_name": "А-308",
+            "type": "Лекционные",
+            "in_ceiling": true,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_6": {
+        "type": "lesson",
+        "lessons": []
+      }
+    },
+    "bell_4": {
+      "header": {
+        "type": "bell",
+        "start_lesson": "14:30",
+        "end_lesson": "16:05"
+      },
+      "day_1": {
+        "type": "lesson",
+        "lessons": []
+      },
+      "day_2": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 547,
+            "subject_name": "Физика",
+            "teachers": [
+              {
+                "id": 170582,
+                "post": "доцент",
+                "name": "Кобзарь А.Н."
+              },
+              {
+                "id": 54234,
+                "post": "доцент",
+                "name": "Каевицер Е.В."
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2",
+                "subgroup_id": 11,
+                "subgroup_name": "1"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 374,
+                "name": "Л-551"
+              }
+            ],
+            "room_id": 374,
+            "room_name": "Л-551",
+            "type": "Лабораторные",
+            "in_ceiling": true,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_3": {
+        "type": "lesson",
+        "lessons": []
+      },
+      "day_4": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 547,
+            "subject_name": "Физика",
+            "teachers": [
+              {
+                "id": 54273,
+                "post": "доцент",
+                "name": "Бондарева С.А."
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 141,
+                "name": "Л-547"
+              }
+            ],
+            "room_id": 141,
+            "room_name": "Л-547",
+            "type": "Практические",
+            "in_ceiling": true,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_5": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 549,
+            "subject_name": "Химия",
+            "teachers": [
+              {
+                "id": 62067,
+                "post": "доцент",
+                "name": "Дегтярев А.В."
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 670,
+                "name": "К-212"
+              }
+            ],
+            "room_id": 670,
+            "room_name": "К-212",
+            "type": "Лекционные",
+            "in_ceiling": true,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_6": {
+        "type": "lesson",
+        "lessons": []
+      }
+    },
+    "bell_5": {
+      "header": {
+        "type": "bell",
+        "start_lesson": "16:20",
+        "end_lesson": "17:55"
+      },
+      "day_1": {
+        "type": "lesson",
+        "lessons": []
+      },
+      "day_2": {
+        "type": "lesson",
+        "lessons": [
+          {
+            "subject_id": 304,
+            "subject_name": "Информатика",
+            "teachers": [
+              {
+                "id": 60174,
+                "post": "ассистент",
+                "name": "Петряков А.М."
+              },
+              {
+                "id": 49111,
+                "post": "доцент",
+                "name": "Андреева О.В."
+              }
+            ],
+            "groups": [
+              {
+                "id": 7121,
+                "name": "БЭН-21-2",
+                "subgroup_id": 11,
+                "subgroup_name": "1"
+              }
+            ],
+            "rooms": [
+              {
+                "id": 1074,
+                "name": "Б-821-УВЦ"
+              },
+              {
+                "id": 1085,
+                "name": "Б-823-УВЦ"
+              }
+            ],
+            "room_id": 1074,
+            "room_name": "Б-821-УВЦ",
+            "type": "Лабораторные",
+            "in_ceiling": true,
+            "other": null,
+            "other1": null
+          }
+        ]
+      },
+      "day_3": {
+        "type": "lesson",
+        "lessons": []
+      },
+      "day_4": {
+        "type": "lesson",
+        "lessons": []
+      },
+      "day_5": {
+        "type": "lesson",
+        "lessons": []
+      },
+      "day_6": {
+        "type": "lesson",
+        "lessons": []
+      }
+    }
+  }
+}
