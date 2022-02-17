@@ -2,15 +2,18 @@
 
 import requests
 
+<meta name="csrf-token" content="6k4ott1DgIAkfazE3zvn5XTHlEupgAyK3ru8/2UgD6thkfU/yBiOoJ5OkP80jwDpFPhwgqkWJmwsV9/KH5aJoA==" />
+
+
 import vk_api
 from vk_api import VkUpload
 from vk_api.longpoll import VkLongPoll, VkEventType
 from vk_api.utils import get_random_id
 
-
 def main():
     session = requests.Session()
-
+    client = requests.Session()
+    
     # Авторизация пользователя:
     """
     login, password = 'python@vk.com', 'mypassword'
@@ -28,8 +31,13 @@ def main():
 
     vk = vk_session.get_api()
     
-    r = requests.get('https://edu.misis.ru/schedule/moscow/current')
-    rtext = r.text
+    client = requests.get('https://edu.misis.ru/schedule/moscow/current')
+    if 'csrftoken' in client.cookies:
+    # Django 1.6 and up
+        csrftoken = client.cookies['csrftoken']
+    else:
+    # older versions
+        csrftoken = client.cookies['csrf']
 
     upload = VkUpload(vk_session)  # Для загрузки изображений
     longpoll = VkLongPoll(vk_session)
@@ -53,7 +61,7 @@ def main():
                 vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
-                    message=rtext
+                    message=csrftoken
                 )
                 print('no results')
                 continue
