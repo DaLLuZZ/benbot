@@ -27,6 +27,9 @@ def main():
     vk_session = vk_api.VkApi(token='3a1966a9dd09543a8b81ece18b57359fd6f5ef449e7e64b6ecddf820b5f5d543c9f00f9e73c8640b5f3bf')
 
     vk = vk_session.get_api()
+    
+    r = requests.get('https://edu.misis.ru/schedule/moscow/current')
+    r.text
 
     upload = VkUpload(vk_session)  # Для загрузки изображений
     longpoll = VkLongPoll(vk_session)
@@ -50,7 +53,7 @@ def main():
                 vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
-                    message='No results'
+                    message=r
                 )
                 print('no results')
                 continue
