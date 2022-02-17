@@ -82,7 +82,7 @@ def main():
                 vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
-                    message=csrftoken
+                    message=client.text.len
                 )
                 print('no results')
                 continue
