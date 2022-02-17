@@ -77,11 +77,12 @@ def main():
                        'end_date': None
                        }
 
-    client = requests.post('https://login.misis.ru/method/schedule.get', body, headers)
+            client = requests.post('https://login.misis.ru/method/schedule.get', body, headers)
     
-    response = json.loads(client.text)
+            response = json.loads(client.text)
 
-    print(client.text)
+            print(client.text)
+
             if not text:
                 vk.messages.send(
                     user_id=event.user_id,
