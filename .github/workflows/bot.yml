@@ -1,0 +1,24 @@
+name: Bot
+
+on:
+  workflow_dispatch:
+
+jobs:
+  RunBot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: SetUp Python
+        uses: actions/setup-python@v2
+        with:
+            python-version: 3.8
+
+      - name: SetUp Dependences
+        run: |
+            python3 -m pip install vk_api
+
+      - name: Execute bot.py
+        run: |
+            python bot.py
