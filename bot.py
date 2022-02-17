@@ -56,7 +56,7 @@ def main():
             'start_date': '2022-02-18',
             'end_date': None}
 
-    client = requests.post('https://login.misis.ru/method/schedule.get', json.dumps(body), headers)
+    client = requests.post('https://login.misis.ru/method/schedule.get', body, headers)
 
     print(client.text)
 
