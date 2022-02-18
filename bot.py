@@ -83,7 +83,7 @@ def main():
                         message = message + teacher['name'] + ' (' + teacher['post'] + ')\n'
                     message = message + lesson['room_name'] + '\n\n'
 
-            if (message == '')
+            if (message == string.empty)
                 message = 'Расписание не найдено =/'
             vk.messages.send(
                     user_id=event.user_id,
