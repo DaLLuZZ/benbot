@@ -44,10 +44,13 @@ def main():
 
             current_datetime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800) # msc = gmt + 3*60*60
             wishtime = current_datetime
+            wishday = 'сегодня'
             if event.text.lower() == 'завтра' or event.text.lower() == 'pfdnhf':
                 wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 86400) # msc + 1day = gmt + 3*60*60 + 24*60*60
+                wishday = 'завтра'
             if event.text.lower() == 'послезавтра' or event.text.lower() == 'gjcktpfdnhf':
                 wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 172800) # msc + 2days = gmt + 3*60*60 + 2*24*60*60
+                wishday = 'завтра'
 
             weekday = wishtime.isoweekday()
             if weekday == 7:
@@ -77,6 +80,13 @@ def main():
             print(client.text)
             response = json.loads(client.text)
 
+            if response['status'].upper() != 'FOUND':
+                vk.messages.send(
+                    user_id=event.user_id,
+                    random_id=get_random_id(),
+                    message='Расписание не найдено =/'
+                )
+                
             schedule_header = response['schedule_header']
             schedule = response['schedule']
 
@@ -84,10 +94,8 @@ def main():
 
             # parsing this fucken json =/
             for bn in [1, 2, 3, 4, 5]:
-                str = 'bell_{}'.format(bn)
-                bell = schedule[str]
-                str = 'day_{}'.format(weekday)
-                day = bell[str]
+                bell = schedule['bell_{}'.format(bn)]
+                day = bell['day_{}'.format(weekday)]
                 for lesson in day['lessons']:
                     message = message + '{}-я пара ({} - {})\n{} ({})\n'.format(bn, bell['header']['start_lesson'], bell['header']['end_lesson'], lesson['subject_name'], lesson['type'])
                     for teacher in lesson['teachers']:
@@ -96,6 +104,8 @@ def main():
 
             if not message:
                 message = 'Расписание не найдено =/'
+
+            message = 'Расписание для группы БЭН-21-2 на {} {} ({})\n\n'.format(wishday, schedule_header['day_{}'.format(weekday)]['date'], schedule_header['day_{}'.format(weekday)]['short_text']) + message
             vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
