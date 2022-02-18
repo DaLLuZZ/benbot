@@ -53,6 +53,7 @@ def main():
                        }
 
             client = requests.post('https://login.misis.ru/method/schedule.get', body, headers)
+            print(client.text)
             response = json.loads(client.text)
 
             vk.messages.send(
