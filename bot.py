@@ -74,7 +74,6 @@ def main():
                     random_id=get_random_id(),
                     message=response['schedule']['bell_1']['day_5']['lessons'][0]['teachers'][0]['name']
                 )
-                continue
 
 
 if __name__ == '__main__':
