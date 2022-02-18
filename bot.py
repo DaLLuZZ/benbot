@@ -65,12 +65,13 @@ def main():
             message = ''
 
             # parsing this fucken json =/
-  """          for bn in [1, 2, 3, 4, 5]
+            """          for bn in [1, 2, 3, 4, 5]
                 str = 'bell_{}'.format(bn)
                 bell = schedule[str]
                 for dn in [1, 2, 3, 4, 5, 6]
                     str = 'day_{}'.format(dn)
-                    day = bell[str]"""
+                    day = bell[str]
+                    """
             vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
