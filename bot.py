@@ -66,21 +66,21 @@ def main():
 
             message = ''
 
+            weekday = current_datetime.isoweekday()
             # parsing this fucken json =/
             for bn in [1, 2, 3, 4, 5]:
                 str = 'bell_{}'.format(bn)
                 bell = schedule[str]
-                str = 'day_{}'.format(current_datetime.isoweekday())
+                str = 'day_{}'.format(weekday)
                 day = bell[str]
                 for lesson in day['lessons']:
-                    message = message + lesson['subject_name'] + '\n'
+                    message = message + '{}-я пара\n{}\n'.format(bn, lesson['subject_name'])
 
             vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
                     message=message#response['schedule']['bell_1']['day_5']['lessons'][0]['teachers'][0]['name']
                 )
-
 
 if __name__ == '__main__':
     main()
