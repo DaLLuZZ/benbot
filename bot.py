@@ -48,6 +48,13 @@ def main():
                 wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 86400) # msc + 1day = gmt + 3*60*60 + 24*60*60
             if event.text.lower() == 'послезавтра' or event.text.lower() == 'gjcktpfdnhf':
                 wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 172800) # msc + 2days = gmt + 3*60*60 + 2*24*60*60
+            weekday = wishtime.isoweekday()
+            if weekday == 7:
+                vk.messages.send(
+                    user_id=event.user_id,
+                    random_id=get_random_id(),
+                    message='Воскресенье...'
+                )
             string_datetime = wishtime.strftime('%Y-%m-%d')
             print(wishtime.strftime('%Y-%m-%d %H:%M'))
 
@@ -72,7 +79,6 @@ def main():
 
             message = ''
 
-            weekday = wishtime.isoweekday()
             # parsing this fucken json =/
             for bn in [1, 2, 3, 4, 5]:
                 str = 'bell_{}'.format(bn)
