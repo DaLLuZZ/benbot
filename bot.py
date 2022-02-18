@@ -140,7 +140,8 @@ def main():
                 for lesson in day['lessons']:
                     message = message + '{}-я пара ({} - {})\n{} ({})\n'.format(bn, bell['header']['start_lesson'], bell['header']['end_lesson'], lesson['subject_name'], lesson['type'])
                     for teacher in lesson['teachers']:
-                        message = message + teacher['name'] + ' (' + teacher['post'] + ')\n'
+                        if teacher['name'] not None and teacher['post'] not None:
+                            message = message + teacher['name'] + ' (' + teacher['post'] + ')\n'
                     message = message + lesson['room_name'] + '\n\n'
 
             if not message:
