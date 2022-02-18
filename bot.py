@@ -48,7 +48,8 @@ def main():
 
             if event.text.lower() == 'сегодня' or event.text.lower() == 'ctujlyz' or event.text.lower() == 'today' or event.text.lower() == 'td' or event.text.lower() == 'сег' or event.text.lower() == 'сг' or event.text.lower() == 'cu' or event.text.lower() == 'с':
                 wishtime = current_datetime
-            if event.text.lower() == 'завтра' or event.text.lower() == 'pfdnhf' or event.text.lower() == 'з' or event.text.lower() == 'зав' or event.text.lower() == 'зв':
+                wishday = 'сегодня'
+            elif if event.text.lower() == 'завтра' or event.text.lower() == 'pfdnhf' or event.text.lower() == 'з' or event.text.lower() == 'зав' or event.text.lower() == 'зв':
                 wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 86400) # msc + 1day = gmt + 3*60*60 + 24*60*60
                 wishday = 'завтра'
             elif event.text.lower() == 'послезавтра' or event.text.lower() == 'gjcktpfdnhf' or event.text.lower() == 'пз':
