@@ -40,17 +40,6 @@ def main():
         if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
             print('id{}: "{}"'.format(event.user_id, event.text), end=' ')
 
-            response = session.get(
-                'http://api.duckduckgo.com/',
-                params={
-                    'q': event.text,
-                    'format': 'json'
-                }
-            ).json()
-
-            text = response.get('AbstractText')
-            image_url = response.get('Image')
-
             headers = {
                        'content-type': 'application/json;charset=UTF-8',
                        'authority': 'login.misis.ru',
@@ -78,37 +67,14 @@ def main():
                        }
 
             client = requests.post('https://login.misis.ru/method/schedule.get', body, headers)
-    
             response = json.loads(client.text)
 
-            print(client.text)
-
-            if not text:
-                vk.messages.send(
+            vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
                     message=response['schedule']['bell_1']['day_5']['lessons'][0]['teachers'][0]['name']
                 )
-                print('no results')
                 continue
-
-            attachments = []
-
-            if image_url:
-                image = session.get(image_url, stream=True)
-                photo = upload.photo_messages(photos=image.raw)[0]
-
-                attachments.append(
-                    'photo{}_{}'.format(photo['owner_id'], photo['id'])
-                )
-
-            vk.messages.send(
-                user_id=event.user_id,
-                attachment=','.join(attachments),
-                random_id=get_random_id(),
-                message=text
-            )
-            print('ok')
 
 
 if __name__ == '__main__':
