@@ -106,7 +106,7 @@ def main():
                 vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
-                    message=''
+                    message='Список "комманд""\n\nсегодня" / "завтра" / "послезавтра"\n"[день недели]" (e.g.: "вторник" или "вт")\n"дз"'
                 )
                 continue
 
