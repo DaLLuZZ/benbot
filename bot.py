@@ -43,7 +43,9 @@ def main():
             print('id{}: "{}"'.format(event.user_id, event.text), end=' ')
 
             current_datetime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800) # msc = gmt + 3*60*60
-            if event.text == 'завтра':
+            ltext = event.text
+            ltext.lower()
+            if ltext == 'завтра':
                 current_datetime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 86400) # msc + 1day = gmt + 3*60*60 + 24*60*60
             string_datetime = current_datetime.strftime('%Y-%m-%d')
             print(current_datetime.strftime('%Y-%m-%d %H:%M'))
