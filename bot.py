@@ -74,7 +74,7 @@ def main():
                 str = 'day_{}'.format(weekday)
                 day = bell[str]
                 for lesson in day['lessons']:
-                    message = message + '{}-я пара\n{}\n'.format(bn, lesson['subject_name'])
+                    message = message + '{}-я пара ({} - {})\n{}\n\n'.format(bn, bell['header']['start_lesson'], bell['header']['endlesson'], lesson['subject_name'])
 
             vk.messages.send(
                     user_id=event.user_id,
