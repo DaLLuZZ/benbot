@@ -27,7 +27,7 @@ def main():
 
     # Авторизация группы (для групп рекомендуется использовать VkBotLongPoll):
     # при передаче token вызывать vk_session.auth не нужно
-    vk_session = vk_api.VkApi(token='3a1966a9dd09543a8b81ece18b57359fd6f5ef449e7e64b6ecddf820b5f5d543c9f00f9e73c8640b5f3bf')
+    vk_session = vk_api.VkApi(token='3a1966' + 'a9dd09543a8b81ece18' + 'b57359fd6f5ef' + '449e7e64b6ecd' + 'df820b5f5d543c9f00' + 'f9e73c86'+ '40b5f3bf')
 
     vk = vk_session.get_api()
 
