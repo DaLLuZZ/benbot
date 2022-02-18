@@ -44,7 +44,7 @@ def main():
 
             current_datetime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800)
             string_datetime = current_datetime.strftime('%Y-%m-%d')
-            print(current_datetime.strftime('%Y-%m-%d %H:%M')
+            print(current_datetime.strftime('%Y-%m-%d %H:%M'))
             headers = {
                        #'x-csrf-token': csrftoken, # no necessity to pass csrf token in header wtf why omfg o_0 ??
                       }
