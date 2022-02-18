@@ -44,8 +44,10 @@ def main():
 
             current_datetime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800) # msc = gmt + 3*60*60
             wishtime = current_datetime
-            if event.text.lower() == 'завтра':
+            if event.text.lower() == 'завтра' or event.text.lower() == 'pfdnhf':
                 wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 86400) # msc + 1day = gmt + 3*60*60 + 24*60*60
+            if event.text.lower() == 'послезавтра' or event.text.lower() == 'gjcktpfdnhf':
+                wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 172800) # msc + 2days = gmt + 3*60*60 + 2*24*60*60
             string_datetime = wishtime.strftime('%Y-%m-%d')
             print(wishtime.strftime('%Y-%m-%d %H:%M'))
 
