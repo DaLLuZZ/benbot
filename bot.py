@@ -72,8 +72,7 @@ def main():
                 bell = schedule[str]
                 str = 'day_{}'.format(current_datetime.isoweekday())
                 day = bell[str]
-                for ln in day['lessons']:
-                    lesson = day['lessons'][ln]
+                for lesson in day['lessons']:
                     message = message + lesson['subject_name'] + '\n'
 
             vk.messages.send(
