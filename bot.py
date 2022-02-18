@@ -2,6 +2,8 @@
 
 import requests
 import json
+import datetime
+from datetime import datetime, date, time
 
 import vk_api
 from vk_api import VkUpload
@@ -40,22 +42,35 @@ def main():
         if event.type == VkEventType.MESSAGE_NEW and event.to_me and event.text:
             print('id{}: "{}"'.format(event.user_id, event.text), end=' ')
 
+            current_datetime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800).strftime('%Y-%m-%d')
             headers = {
-                       #'x-csrf-token': csrftoken,
+                       #'x-csrf-token': csrftoken, # no necessity to pass csrf token in header wtf why omfg o_0 ??
                       }
             body =    {
                        'filial': 880,
                        'group': '7121',
                        'room': None,
                        'teacher': None,
-                       'start_date': '2022-02-18',
-                       'end_date': None
+                       'start_date': current_datetime,
+                       'end_date': current_datetime
                        }
 
             client = requests.post('https://login.misis.ru/method/schedule.get', body, headers)
             print(client.text)
             response = json.loads(client.text)
 
+            schedule_header = response['schedule_header']
+            schedule = response['schedule']
+
+            message = ''
+
+            # parsing this fucken json =/
+  """          for bn in [1, 2, 3, 4, 5]
+                str = 'bell_{}'.format(bn)
+                bell = schedule[str]
+                for dn in [1, 2, 3, 4, 5, 6]
+                    str = 'day_{}'.format(dn)
+                    day = bell[str]"""
             vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
