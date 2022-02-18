@@ -92,6 +92,12 @@ def main():
                     wishday = 'субботу'
             elif event.text.lower() == 'воскресенье' or event.text.lower() == 'вс':
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (7 - current_datetime.isoweekday()) * 86400)
+            elif event.text.lower() == 'дз' or event.text.lower() == 'lp':
+                vk.messages.send(
+                    user_id=event.user_id,
+                    random_id=get_random_id(),
+                    message='Ссылка на таблицу с домашнкой (credits to Maria):\nhttps://docs.google.com/spreadsheets/d/1008v3roUvGxZcNO6atvlsAhVPTd0loIOTUKmK8Xn-4o/edit'
+                )
 
             weekday = wishtime.isoweekday()
             if weekday == 7:
