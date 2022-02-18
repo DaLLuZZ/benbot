@@ -44,10 +44,10 @@ def main():
 
             current_datetime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800) # msc = gmt + 3*60*60
             wishtime = current_datetime
+            wishday = 'сегодня'
 
             if event.text.lower() == 'сегодня' or event.text.lower() == 'ctujlyz' or event.text.lower() == 'today' or event.text.lower() == 'td' or event.text.lower() == 'сег' or event.text.lower() == 'сг' or event.text.lower() == 'cu' or event.text.lower() == 'с':
-                wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 86400) # msc + 1day = gmt + 3*60*60 + 24*60*60
-                wishday = 'сегодня'
+                wishtime = current_datetime
             if event.text.lower() == 'завтра' or event.text.lower() == 'pfdnhf' or event.text.lower() == 'з' or event.text.lower() == 'зав' or event.text.lower() == 'зв':
                 wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 86400) # msc + 1day = gmt + 3*60*60 + 24*60*60
                 wishday = 'завтра'
@@ -108,6 +108,7 @@ def main():
                     random_id=get_random_id(),
                     message=''
                 )
+                continue
 
             weekday = wishtime.isoweekday()
             if weekday == 7:
