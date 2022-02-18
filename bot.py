@@ -43,12 +43,12 @@ def main():
             print('id{}: "{}"'.format(event.user_id, event.text), end=' ')
 
             current_datetime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800) # msc = gmt + 3*60*60
-            ltext = event.text
-            ltext.lower()
-            if ltext == 'завтра':
-                current_datetime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 86400) # msc + 1day = gmt + 3*60*60 + 24*60*60
-            string_datetime = current_datetime.strftime('%Y-%m-%d')
-            print(current_datetime.strftime('%Y-%m-%d %H:%M'))
+            wishtime = current_datetime
+            if event.text.lower() == 'завтра':
+                wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 86400) # msc + 1day = gmt + 3*60*60 + 24*60*60
+            string_datetime = wishtime.strftime('%Y-%m-%d')
+            print(wishtime.strftime('%Y-%m-%d %H:%M'))
+
             headers = {
                        #'x-csrf-token': csrftoken, # no necessity to pass csrf token in header wtf why omfg o_0 ??
                       }
@@ -70,7 +70,7 @@ def main():
 
             message = ''
 
-            weekday = current_datetime.isoweekday()
+            weekday = wishtime.isoweekday()
             # parsing this fucken json =/
             for bn in [1, 2, 3, 4, 5]:
                 str = 'bell_{}'.format(bn)
