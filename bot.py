@@ -44,59 +44,69 @@ def main():
 
             current_datetime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800) # msc = gmt + 3*60*60
             wishtime = current_datetime
-            wishday = 'сегодня'
-            if event.text.lower() == 'завтра' or event.text.lower() == 'pfdnhf':
+
+            if event.text.lower() == 'сегодня' or event.text.lower() == 'ctujlyz' or event.text.lower() == 'today' or event.text.lower() == 'td' or event.text.lower() == 'сег' or event.text.lower() == 'сг' or event.text.lower() == 'cu' or event.text.lower() == 'с':
+                wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 86400) # msc + 1day = gmt + 3*60*60 + 24*60*60
+                wishday = 'сегодня'
+            if event.text.lower() == 'завтра' or event.text.lower() == 'pfdnhf' or event.text.lower() == 'з' or event.text.lower() == 'зав' or event.text.lower() == 'зв':
                 wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 86400) # msc + 1day = gmt + 3*60*60 + 24*60*60
                 wishday = 'завтра'
-            elif event.text.lower() == 'послезавтра' or event.text.lower() == 'gjcktpfdnhf':
+            elif event.text.lower() == 'послезавтра' or event.text.lower() == 'gjcktpfdnhf' or event.text.lower() == 'пз':
                 wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 172800) # msc + 2days = gmt + 3*60*60 + 2*24*60*60
                 wishday = 'послезавтра'
             elif event.text.lower() == 'понедельник' or event.text.lower() == 'пн':
                 if current_datetime.isoweekday() > 1:
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (8 - current_datetime.isoweekday()) * 86400)
-                    wishday = 'ближайший понедельник'
+                    wishday = 'следующий понедельник'
             elif event.text.lower() == 'вторник' or event.text.lower() == 'вт':
                 if current_datetime.isoweekday() > 2:
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (9 - current_datetime.isoweekday()) * 86400)
-                    wishday = 'ближайший вторник'
+                    wishday = 'следующий вторник'
                 elif current_datetime.isoweekday() < 2:
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (2 - current_datetime.isoweekday()) * 86400)
-                    wishday = 'вторник'
+                    wishday = 'этот вторник'
             elif event.text.lower() == 'среда' or event.text.lower() == 'ср':
                 if current_datetime.isoweekday() > 3:
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (10 - current_datetime.isoweekday()) * 86400)
-                    wishday = 'ближайшую среду'
+                    wishday = 'следующую среду'
                 elif current_datetime.isoweekday() < 3:
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (3 - current_datetime.isoweekday()) * 86400)
-                    wishday = 'среду'
+                    wishday = 'эту среду'
             elif event.text.lower() == 'четверг' or event.text.lower() == 'чт':
                 if current_datetime.isoweekday() > 4:
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (11 - current_datetime.isoweekday()) * 86400)
-                    wishday = 'ближайший четверг'
+                    wishday = 'следующий четверг'
                 elif current_datetime.isoweekday() < 4:
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (4 - current_datetime.isoweekday()) * 86400)
-                    wishday = 'четверг'
+                    wishday = 'этот четверг'
             elif event.text.lower() == 'пятница' or event.text.lower() == 'пт':
                 if current_datetime.isoweekday() > 5:
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (12 - current_datetime.isoweekday()) * 86400)
-                    wishday = 'ближайшую пятницу'
+                    wishday = 'следующую пятницу'
                 elif current_datetime.isoweekday() < 5:
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (5 - current_datetime.isoweekday()) * 86400)
-                    wishday = 'пятницу'
+                    wishday = 'эту пятницу'
             elif event.text.lower() == 'суббота' or event.text.lower() == 'сб':
                 if current_datetime.isoweekday() > 6:
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (13 - current_datetime.isoweekday()) * 86400)
-                    wishday = 'ближайшую субботу'
+                    wishday = 'следующую субботу'
                 elif current_datetime.isoweekday() < 6:
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (6 - current_datetime.isoweekday()) * 86400)
-                    wishday = 'субботу'
+                    wishday = 'эту субботу'
             elif event.text.lower() == 'воскресенье' or event.text.lower() == 'вс':
                     wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (7 - current_datetime.isoweekday()) * 86400)
-            elif event.text.lower() == 'дз' or event.text.lower() == 'lp':
+            elif event.text.lower() == 'дз' or event.text.lower() == 'lp' or event.text.lower() == 'домашка' or event.text.lower() == 'ljvfirf' or event.text.lower() == 'домашки':
                 vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
-                    message='Ссылка на таблицу с домашнкой (credits to Maria):\nhttps://docs.google.com/spreadsheets/d/1008v3roUvGxZcNO6atvlsAhVPTd0loIOTUKmK8Xn-4o/edit'
+                    message='Ссылка на гугл док с домашками (credits to Maria):\nhttps://docs.google.com/spreadsheets/d/1008v3roUvGxZcNO6atvlsAhVPTd0loIOTUKmK8Xn-4o/edit'
+                )
+                continue
+            else:
+                vk.messages.send(
+                    user_id=event.user_id,
+                    random_id=get_random_id(),
+                    message=''
                 )
 
             weekday = wishtime.isoweekday()
@@ -104,7 +114,7 @@ def main():
                 vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
-                    message='Воскресенье...'
+                    message='Воскресенье... Замечательный день...'
                 )
                 continue
 
