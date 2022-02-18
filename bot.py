@@ -48,9 +48,50 @@ def main():
             if event.text.lower() == 'завтра' or event.text.lower() == 'pfdnhf':
                 wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 86400) # msc + 1day = gmt + 3*60*60 + 24*60*60
                 wishday = 'завтра'
-            if event.text.lower() == 'послезавтра' or event.text.lower() == 'gjcktpfdnhf':
+            else if event.text.lower() == 'послезавтра' or event.text.lower() == 'gjcktpfdnhf':
                 wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + 172800) # msc + 2days = gmt + 3*60*60 + 2*24*60*60
-                wishday = 'завтра'
+                wishday = 'послезавтра'
+            else if event.text.lower() == 'понедельник' or event.text.lower() == 'пн':
+                if current_datetime.isoweekday() > 1:
+                    wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (8 - current_datetime.isoweekday()) * 86400)
+                    wishday = 'ближайший понедельник'
+            else if event.text.lower() == 'вторник' or event.text.lower() == 'вт':
+                if current_datetime.isoweekday() > 2:
+                    wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (9 - current_datetime.isoweekday()) * 86400)
+                    wishday = 'ближайший вторник'
+                else if current_datetime.isoweekday() < 2:
+                    wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (2 - current_datetime.isoweekday()) * 86400)
+                    wishday = 'вторник'
+            else if event.text.lower() == 'среда' or event.text.lower() == 'ср':
+                if current_datetime.isoweekday() > 3:
+                    wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (10 - current_datetime.isoweekday()) * 86400)
+                    wishday = 'ближайшую среду'
+                else if current_datetime.isoweekday() < 3:
+                    wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (3 - current_datetime.isoweekday()) * 86400)
+                    wishday = 'среду'
+            else if event.text.lower() == 'четверг' or event.text.lower() == 'чт':
+                if current_datetime.isoweekday() > 4:
+                    wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (11 - current_datetime.isoweekday()) * 86400)
+                    wishday = 'ближайший четверг'
+                else if current_datetime.isoweekday() < 4:
+                    wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (4 - current_datetime.isoweekday()) * 86400)
+                    wishday = 'четверг'
+            else if event.text.lower() == 'пятница' or event.text.lower() == 'пт':
+                if current_datetime.isoweekday() > 5:
+                    wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (12 - current_datetime.isoweekday()) * 86400)
+                    wishday = 'ближайшую пятницу'
+                else if current_datetime.isoweekday() < 5:
+                    wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (5 - current_datetime.isoweekday()) * 86400)
+                    wishday = 'пятницу'
+            else if event.text.lower() == 'суббота' or event.text.lower() == 'сб':
+                if current_datetime.isoweekday() > 6:
+                    wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (13 - current_datetime.isoweekday()) * 86400)
+                    wishday = 'ближайшую субботу'
+                else if current_datetime.isoweekday() < 6:
+                    wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (6 - current_datetime.isoweekday()) * 86400)
+                    wishday = 'субботу'
+            else if event.text.lower() == 'воскресенье' or event.text.lower() == 'вс':
+                    wishtime = datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple())) + 10800 + (7 - current_datetime.isoweekday()) * 86400)
 
             weekday = wishtime.isoweekday()
             if weekday == 7:
