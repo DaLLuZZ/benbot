@@ -8,25 +8,13 @@ import calendar
 import vk_api
 from vk_api import VkUpload
 from vk_api.longpoll import VkLongPoll, VkEventType
+from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 from vk_api.utils import get_random_id
 
 def main():
     session = requests.Session()
     client = requests.Session()
-    
-    # Авторизация пользователя:
-    """
-    login, password = 'python@vk.com', 'mypassword'
-    vk_session = vk_api.VkApi(login, password)
-    try:
-        vk_session.auth(token_only=True)
-    except vk_api.AuthError as error_msg:
-        print(error_msg)
-        return
-    """
 
-    # Авторизация группы (для групп рекомендуется использовать VkBotLongPoll):
-    # при передаче token вызывать vk_session.auth не нужно
     vk_session = vk_api.VkApi(token='3a1966' + 'a9dd09543a8b81ece18' + 'b57359fd6f5ef' + '449e7e64b6ecd' + 'df820b5f5d543c9f00' + 'f9e73c86'+ '40b5f3bf')
 
     vk = vk_session.get_api()
@@ -35,7 +23,6 @@ def main():
     #client = requests.get('https://edu.misis.ru/schedule/moscow/current')
     #csrftoken = client.text[361:449] # should not be hardcoded probably yes???
 
-    upload = VkUpload(vk_session)  # Для загрузки изображений
     longpoll = VkLongPoll(vk_session)
 
     for event in longpoll.listen():
@@ -104,10 +91,16 @@ def main():
                 )
                 continue
             else:
+                keyboard = VkKeyboard()
+
+                keyboard.add_button('Сегодня', color=VkKeyboardColor.POSITIVE)
+                keyboard.add_line()
+                keyboard.add_button('Завтра', color=VkKeyboardColor.POSITIVE)
                 vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
-                    message='Что распознаёт бот?\n\n"сегодня" / "завтра" / "послезавтра"\n"[день недели]" (пример: "вторник" или "вт")\n"дз"'
+                    keyboard=keyboard.get_keyboard(),
+                    message='Какие запросы распознаёт бот?\n\n"сегодня" / "завтра" / "послезавтра"\n"[день недели]" (пример: "вторник" или "вт")\n"дз"\n\nТакже можно воспользоваться клавиатурой (функционал клавиатуры временно(?) ограничен)'
                 )
                 continue
 
@@ -135,7 +128,7 @@ def main():
                        'end_date': None
                        }
 
-            client = requests.post('https://login.misis.ru/method/schedule.get', body, headers)
+            client = requests.post('https://lk.misis.ru/method/schedule.get', body, headers)
             print(client.text)
             response = json.loads(client.text)
 
@@ -145,7 +138,7 @@ def main():
                     random_id=get_random_id(),
                     message='Расписание не найдено =/'
                 )
-                
+
             schedule_header = response['schedule_header']
             schedule = response['schedule']
 
@@ -153,6 +146,8 @@ def main():
 
             # parsing this fucken json =/
             for bn in [1, 2, 3, 4, 5]:
+                if not 'bell_{}'.format(bn) in schedule:
+                    continue;
                 bell = schedule['bell_{}'.format(bn)]
                 day = bell['day_{}'.format(weekday)]
                 for lesson in day['lessons']:
@@ -171,7 +166,7 @@ def main():
             vk.messages.send(
                     user_id=event.user_id,
                     random_id=get_random_id(),
-                    message=message#response['schedule']['bell_1']['day_5']['lessons'][0]['teachers'][0]['name']
+                    message=message
                 )
 
 if __name__ == '__main__':
