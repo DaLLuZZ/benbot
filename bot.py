@@ -22,7 +22,7 @@ def main():
         if client.text.find("К сожалению нам не удалось найти сотрудника") == -1 or passport < 1:
             print(client.text)
         if client.text.find("К сожалению нам не удалось найти сотрудника") == -1:
-            print("\n\nfinal passport: {}".format(passport)
+            print("\n\nfinal passport: {}".format(passport))
 
         passport = passport + 1
 
