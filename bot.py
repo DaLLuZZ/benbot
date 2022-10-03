@@ -19,10 +19,13 @@ def bufGetNext(buffer):
 
 def main():
     client = requests.Session()
-    buffer = [48, 48, 48, 48, 48, 47]
+#    buffer = [48, 48, 48, 48, 48, 47]
+
+#    https://lms.misis.ru/enroll/HLTTBM
+    buffer = [ord('H'), ord('L'), ord('T'), ord('T'), ord('B'), ord('A')]
 
     i = 0
-    while i < 500:
+    while i < 20:
         i = i + 1
 
         buffer = bufGetNext(buffer)
