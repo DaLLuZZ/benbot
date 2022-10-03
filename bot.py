@@ -1,5 +1,6 @@
 import os
 import requests
+from prettytable import PrettyTable
 
 def bufGetNext(buffer):
     i = 5
