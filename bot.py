@@ -38,7 +38,7 @@ def main():
 
     found = 0
     i = 0
-    while i < 20:
+    while i < 1947792:
         i = i + 1
 
         buffer = bufGetNext(buffer)
