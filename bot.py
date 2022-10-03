@@ -3,6 +3,9 @@ import requests
 
 def main():
     client = requests.Session()
+    client = requests.get('https://lms.misis.ru/enroll/9ATXCY')
+    print(client.text)
+    return
 
     passport = 7500
     while passport < 10000:
