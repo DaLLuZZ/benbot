@@ -55,6 +55,9 @@ def main():
         log.write("[{}] [{}] [{}] {}".format(found, i, client.status_code, url))
 
     outfiletable.write(str(table))
+    log.close()
+    outfile.close()
+    outfiletable.close()
 
 if __name__ == '__main__':
     main()
