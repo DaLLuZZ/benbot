@@ -48,7 +48,7 @@ def main():
             client = requests.get(url)
         except BaseException as err:
             print("{}: {}".format(type(err), err))
-            log.write("{}: {}".format(type(err), err))
+            log.write("{}: {}\n".format(type(err), err))
             i = i - 1
             continue
 
