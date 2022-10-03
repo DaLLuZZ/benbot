@@ -6,10 +6,11 @@ def main():
     client = requests.get('https://lms.misis.ru/enroll/9ATXCY')
     print(client.text)
     course = ""
-    startpos = -1
-    if startpos = client.text.find("<title>Зарегистрироваться на ") != -1:
+    startpos = client.text.find("<title>Зарегистрироваться на ")
+    if startpos != -1:
         print(startpos)
         course = client.text[startpos:client.text.find("</title>")]
+        print(course)
     return
 
     passport = 7500
