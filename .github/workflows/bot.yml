@@ -17,8 +17,8 @@ jobs:
 
       - name: SetUp Dependences
         run: |
-            python3 -m pip install vk_api
             python3 -m pip install requests
+            python3 -m pip install PrettyTable
 
       - name: Execute bot.py
         run: |
