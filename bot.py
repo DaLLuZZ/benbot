@@ -42,8 +42,15 @@ def main():
         i = i + 1
 
         buffer = bufGetNext(buffer)
-        url = "https://lms.misis.ru/enroll/{}{}{}{}{}{}".format(chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5]));
-        client = requests.get(url)
+        url = "https://lms.misis.ru/enroll/{}{}{}{}{}{}".format(chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5]))
+
+        try:
+            client = requests.get(url)
+        except BaseException as err:
+            print("{}: {}".format(type(err), err))
+            log.write("{}: {}".format(type(err), err))
+            i = i - 1
+            continue
 
         print("[{}] [{}] [{}] {}".format(found, i, client.status_code, url))
         course = ""
