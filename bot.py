@@ -34,10 +34,9 @@ def main():
         print("[{}] {}".format(client.status_code, url))
         course = ""
         startpos = client.text.find("<title>Зарегистрироваться на ")
-        if startpos != -1:
-            print(startpos)
+        if startpos != -1: # course exists
             course = client.text[startpos+29:client.text.find("</title>")]
-            print("FOUND" + course)
+            print("FOUND: \n" + course)
 
 if __name__ == '__main__':
     main()
