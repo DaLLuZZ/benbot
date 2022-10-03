@@ -28,16 +28,16 @@ def main():
         i = i + 1
         url = "https://lms.misis.ru/enroll/{}{}{}{}{}{}".format(chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5]));
         buffer = bufGetNext(buffer)
-    #    client = requests.get("https://lms.misis.ru/enroll/{}{}{}{}{}{}".format(chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5])))
+        client = requests.get("https://lms.misis.ru/enroll/{}{}{}{}{}{}".format(chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5])))
 
 
-    #    print("[{}] {}".format(client.status_code, url))
-    #    course = ""
-    #    startpos = client.text.find("<title>Зарегистрироваться на ")
-    #    if startpos != -1:
-    #        print(startpos)
-    #        course = client.text[startpos+29:client.text.find("</title>")]
-    #        print(course)
+        print("[{}] {}".format(client.status_code, url))
+        course = ""
+        startpos = client.text.find("<title>Зарегистрироваться на ")
+        if startpos != -1:
+            print(startpos)
+            course = client.text[startpos+29:client.text.find("</title>")]
+            print("FOUND" + course)
 
 if __name__ == '__main__':
     main()
