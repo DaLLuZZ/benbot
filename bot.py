@@ -56,7 +56,7 @@ def main():
             outfile.write(url + "\n" + course)
             table.add_row([found, course, url])
             print("FOUND: " + course)
-        log.write("[{}] [{}] [{}] {}\n".format(found, i, client.status_code, url))
+        log.write("[{}] [{}] [{}] {}{}{}{}{}{}\n".format(found, i, client.status_code, chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5])))
         buffer = bufGetNext(buffer)
         i = i + 1
 
