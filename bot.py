@@ -22,7 +22,7 @@ def bufGetNext(buffer):
 
 def main():
     client = requests.Session()
-    buffer = [48, 48, 48, 48, 48, 47]
+    buffer = [48, 48, 48, 48, 48, 48]
 
     table = PrettyTable()
     table.field_names = ["№ п/п", "Наименование курса", "Ссылка для регистрации"]
@@ -39,9 +39,6 @@ def main():
     found = 0
     i = 0
     while i < 1947792:
-        i = i + 1
-
-        buffer = bufGetNext(buffer)
         url = "https://lms.misis.ru/enroll/{}{}{}{}{}{}".format(chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5]))
 
         try:
@@ -49,7 +46,6 @@ def main():
         except BaseException as err:
             print("{}: {}".format(type(err), err))
             log.write("{}: {}\n".format(type(err), err))
-            i = i - 1
             continue
 
         print("[{}] [{}] [{}] {}".format(found, i, client.status_code, url))
@@ -61,6 +57,8 @@ def main():
             table.add_row([found, course, url])
             print("FOUND: " + course)
         log.write("[{}] [{}] [{}] {}\n".format(found, i, client.status_code, url))
+        buffer = bufGetNext(buffer)
+        i = i + 1
 
     outfiletable.write(str(table))
     log.close()
