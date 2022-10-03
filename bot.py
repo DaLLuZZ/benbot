@@ -22,7 +22,7 @@ def bufGetNext(buffer):
 
 def main():
     client = requests.Session()
-#    buffer = [48, 48, 48, 48, 48, 47]
+    buffer = [48, 48, 48, 48, 48, 47]
 
     table = PrettyTable()
     table.field_names = ["№ п/п", "Наименование курса", "Ссылка для регистрации"]
@@ -32,8 +32,9 @@ def main():
     outfiletable = open('table.txt', 'w')
     outfiletable.write("Доступные для регистрации курсы на {}\n".format(datetime.utcfromtimestamp(int(calendar.timegm(datetime.utcnow().utctimetuple()))).strftime('%H:%M:%S %d-%m-%Y')))
 
+#    testing
 #    https://lms.misis.ru/enroll/HLTTBM
-    buffer = [ord('H'), ord('L'), ord('T'), ord('T'), ord('B'), ord('A')]
+#    buffer = [ord('H'), ord('L'), ord('T'), ord('T'), ord('B'), ord('A')]
 
     found = 0
     i = 0
@@ -46,7 +47,7 @@ def main():
 
         print("[{}] [{}] [{}] {}".format(found, i, client.status_code, url))
         course = ""
-        if client.status_code != 404: # course exists
+        if client.status_code != 404:
             found = found + 1
             course = client.text[client.text.find("<title>Зарегистрироваться на ") + 29:client.text.find("</title>")]
             outfile.write(url + "\n" + course)
