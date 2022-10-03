@@ -51,7 +51,7 @@ def main():
             course = client.text[client.text.find("<title>Зарегистрироваться на ") + 29:client.text.find("</title>")]
             outfile.write(url + "\n" + course)
             table.add_row([found, course, url])
-            print("FOUND: " + course + "\n")
+            print("FOUND: " + course)
         log.write("[{}] [{}] [{}] {}\n".format(found, i, client.status_code, url))
 
     outfiletable.write(str(table))
