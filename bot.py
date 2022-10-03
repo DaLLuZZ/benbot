@@ -35,6 +35,7 @@ def main():
 #    https://lms.misis.ru/enroll/HLTTBM
     buffer = [ord('H'), ord('L'), ord('T'), ord('T'), ord('B'), ord('A')]
 
+    found = 0
     i = 0
     while i < 20:
         i = i + 1
@@ -47,6 +48,7 @@ def main():
         print("[{}] {}".format(client.status_code, url))
         course = ""
         if client.status_code != 404: # course exists
+            found = found + 1
             course = client.text[client.text.find("<title>Зарегистрироваться на ") + 29:client.text.find("</title>")]
             outfile.write(url + "\n" + course)
             table.add_row([number, course, url])
