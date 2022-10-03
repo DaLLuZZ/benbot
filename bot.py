@@ -1,15 +1,6 @@
 import os
 import requests
 
-def GetNextChr(char):
-    if char == 57:
-        char = 65
-    elif char == 90:
-        char = 48
-    else:
-        char = char + 1
-    return char
-
 def bufGetNext(buffer):
     i = 5
     while i >= 0:
