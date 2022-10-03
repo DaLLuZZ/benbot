@@ -9,7 +9,7 @@ def main():
     startpos = client.text.find("<title>Зарегистрироваться на ")
     if startpos != -1:
         print(startpos)
-        course = client.text[startpos:client.text.find("</title>")]
+        course = client.text[startpos+29:client.text.find("</title>")]
         print(course)
     return
 
