@@ -30,12 +30,10 @@ def main():
         buffer = bufGetNext(buffer)
         client = requests.get(url)
 
-
         print("[{}] {}".format(client.status_code, url))
         course = ""
-        startpos = client.text.find("<title>Зарегистрироваться на ")
-        if startpos != -1: # course exists
-            course = client.text[startpos+29:client.text.find("</title>")]
+        if client.status_code != 404: # course exists
+            course = client.text[client.text.find("<title>Зарегистрироваться на ") + 29:client.text.find("</title>")]
             print("FOUND: \n" + course)
 
 if __name__ == '__main__':
