@@ -25,20 +25,19 @@ def main():
 
     i = 0
     while i < 500:
-        buffer = bufGetNext(buffer)
-        print("https://lms.misis.ru/enroll/{}{}{}{}{}{}".format(chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5])))
         i = i + 1
-    
-#    client = requests.get("https://lms.misis.ru/enroll/{}".format())
+        url = "https://lms.misis.ru/enroll/{}{}{}{}{}{}".format(chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5]));
+        buffer = bufGetNext(buffer)
+    #    client = requests.get("https://lms.misis.ru/enroll/{}{}{}{}{}{}".format(chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5])))
 
 
-#    print(client.text)
-#    course = ""
-#    startpos = client.text.find("<title>Зарегистрироваться на ")
-#    if startpos != -1:
-#        print(startpos)
-#        course = client.text[startpos+29:client.text.find("</title>")]
-#        print(course)
+    #    print(client.text)
+    #    course = ""
+    #    startpos = client.text.find("<title>Зарегистрироваться на ")
+    #    if startpos != -1:
+    #        print(startpos)
+    #        course = client.text[startpos+29:client.text.find("</title>")]
+    #        print(course)
 
 if __name__ == '__main__':
     main()
