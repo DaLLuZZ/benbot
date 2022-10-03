@@ -31,7 +31,7 @@ def main():
     #    client = requests.get("https://lms.misis.ru/enroll/{}{}{}{}{}{}".format(chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5])))
 
 
-    #    print(client.text)
+    #    print("[{}] {}".format(client.status_code, url))
     #    course = ""
     #    startpos = client.text.find("<title>Зарегистрироваться на ")
     #    if startpos != -1:
