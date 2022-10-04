@@ -34,11 +34,11 @@ def main():
 
 #    testing
 #    https://lms.misis.ru/enroll/HLTTBM
-#    buffer = [ord('H'), ord('L'), ord('T'), ord('T'), ord('B'), ord('A')]
+    buffer = [ord('Z'), ord('Z'), ord('Z'), ord('Z'), ord('Z'), ord('0')]
 
     found = 0
     i = 0
-    while i < 1947792:
+    while buffer[0] != 90 or buffer[1] != 90 or buffer[2] != 90 or buffer[3] != 90 or buffer[4] != 90 or buffer[5] != 90:
         url = "https://lms.misis.ru/enroll/{}{}{}{}{}{}".format(chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5]))
 
         try:
