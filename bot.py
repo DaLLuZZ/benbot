@@ -34,7 +34,7 @@ def main():
 
 #    testing
 #    https://lms.misis.ru/enroll/HLTTBM
-    buffer = [ord('Z'), ord('Z'), ord('Z'), ord('Z'), ord('Z'), ord('0')]
+#    buffer = [ord('Z'), ord('Z'), ord('Z'), ord('Z'), ord('Z'), ord('0')]
 
     found = 0
     i = 0
