@@ -53,7 +53,7 @@ def main():
         if client.status_code != 404:
             found = found + 1
             course = client.text[client.text.find("<title>Зарегистрироваться на ") + 29:client.text.find("</title>")]
-            outfile.write(url + "\n" + course)
+            outfile.write(url + "\n" + course + "\n")
             table.add_row([found, course, url])
             print("FOUND: " + course)
         log.write("[{}] [{}] [{}] {}{}{}{}{}{}\n".format(found, i, client.status_code, chr(buffer[0]), chr(buffer[1]), chr(buffer[2]), chr(buffer[3]), chr(buffer[4]), chr(buffer[5])))
