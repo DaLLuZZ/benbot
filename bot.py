@@ -50,7 +50,7 @@ def main():
 
         print("[{}] [{}] [{}] {}".format(found, i, client.status_code, url))
         course = ""
-        if client.status_code != 404:
+        if client.status_code == 200:
             found = found + 1
             course = client.text[client.text.find("<title>Зарегистрироваться на ") + 29:client.text.find("</title>")]
             outfile.write(url + "\n" + course + "\n")
