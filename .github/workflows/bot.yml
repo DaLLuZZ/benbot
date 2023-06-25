@@ -13,12 +13,11 @@ jobs:
       - name: SetUp Python
         uses: actions/setup-python@v2
         with:
-            python-version: 3.8
+            python-version: 3.9
 
       - name: SetUp Dependences
         run: |
-            python3 -m pip install vk_api
-            python3 -m pip install requests
+            python3 -m pip install -r requirements.txt
 
       - name: Execute bot.py
         run: |
